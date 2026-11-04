@@ -39,7 +39,7 @@ jobs:
             tags: tero-github-actions:${{ github.sha }}
 
       - name: Setup Trivy
-        uses: aquasecurity/setup-trivy@v0.2.0
+        uses: aquasecurity/setup-trivy@v0.2.9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
