@@ -22,8 +22,8 @@ jobs:
     name: Scan de seguridad (Trivy)
     runs-on: ubuntu-latest
     needs: build
-    strategy: 
-        matrix: 
+    strategy:
+        matrix:
             service: [checkout]
     steps:
       - name: Checkout código
@@ -37,6 +37,11 @@ jobs:
             push: false
             load: true
             tags: tero-github-actions:${{ github.sha }}
+
+      - name: Setup Trivy
+        uses: aquasecurity/setup-trivy@v0.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Escaneo Trivy
         uses: aquasecurity/trivy-action@master
