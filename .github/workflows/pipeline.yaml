@@ -24,7 +24,7 @@ jobs:
     needs: build
     strategy: 
         matrix: 
-            service: [admin, cart, catalog, checkout, orders, ui]
+            service: [checkout]
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
